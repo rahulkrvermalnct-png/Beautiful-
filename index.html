@@ -1287,6 +1287,1232 @@ document.getElementById('regPhone').addEventListener('input', (e) => {
 
 </body>
 </html>
+    font-size: 26px;
+    letter-spacing: 0.18em;
+    color: #fff;
+    line-height: 1;
+}
+
+.brand-sub {
+    font-weight: 400;
+    font-size: 9px;
+    letter-spacing: 0.5em;
+    color: var(--gold-light);
+    margin-top: 6px;
+    padding-left: 4px;
+}
+
+.headline { text-align: center; margin-bottom: 16px; }
+
+.spin-win {
+    font-weight: 800;
+    font-size: 30px;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.04em;
+    line-height: 1;
+}
+
+.gorgeous {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+    margin-top: 2px;
+}
+
+.user-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.user-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(212, 175, 106, 0.08);
+    border: 1px solid rgba(212, 175, 106, 0.3);
+    border-radius: 999px;
+    color: #e8e0d0;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.user-pill .dot { width: 5px; height: 5px; background: #4ade80; border-radius: 50%; }
+
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    background: rgba(212, 175, 106, 0.1);
+    border: 1px solid rgba(212, 175, 106, 0.4);
+    border-radius: 999px;
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.category-tag:active { transform: scale(0.95); }
+.category-tag .change-icon { font-size: 9px; opacity: 0.7; }
+
+/* WHEEL */
+.wheel-stage {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    margin: 8px auto 22px;
+}
+
+.wheel-stage::before {
+    content: '';
+    position: absolute;
+    inset: -8%;
+    background: radial-gradient(circle, rgba(212, 175, 106, 0.20), transparent 60%);
+    filter: blur(16px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.pointer {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+}
+
+.wheel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    transition: transform 5s cubic-bezier(0.17, 0.67, 0.17, 1);
+}
+
+.wheel svg { width: 100%; height: 100%; display: block; }
+
+@keyframes bulbBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+.bulb { animation: bulbBlink 1.4s ease-in-out infinite; }
+
+/* INPUTS */
+.text-input {
+    width: 100%;
+    padding: 15px 22px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(212, 175, 106, 0.3);
+    border-radius: 999px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.text-input::placeholder {
+    color: rgba(232, 224, 208, 0.5);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.text-input:focus {
+    border-color: var(--gold);
+    background: rgba(212, 175, 106, 0.06);
+}
+
+.text-input.error {
+    border-color: var(--error);
+    background: rgba(255, 107, 107, 0.05);
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+    position: relative;
+    width: 100%;
+    padding: 17px 32px;
+    background: linear-gradient(180deg, var(--gold-bright) 0%, #c8a05a 50%, var(--gold-dark) 100%);
+    border: 1px solid var(--gold-bright);
+    border-radius: 999px;
+    color: var(--ink);
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.22em;
+    cursor: pointer;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.4),
+        0 6px 20px rgba(212, 175, 106, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: transform 0.15s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.btn-primary:active { transform: translateY(1px); }
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 13px 28px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.btn-secondary:active { background: rgba(212, 175, 106, 0.15); transform: scale(0.97); }
+
+.note {
+    margin-top: 10px;
+    font-size: 11px;
+    color: rgba(212, 175, 106, 0.7);
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.note::before { content: '◷  '; color: var(--gold); }
+
+.controls { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+
+/* MODAL BASE */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: none;
+    place-items: center;
+    z-index: 100;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.overlay.show { display: grid; animation: fadeIn 0.3s; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal-card {
+    background: linear-gradient(160deg, var(--ink) 0%, var(--bg) 100%);
+    border: 1px solid var(--gold);
+    border-radius: 28px;
+    padding: 32px 24px;
+    text-align: center;
+    max-width: 380px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(212, 175, 106, 0.25);
+    animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-card .crown { font-size: 32px; margin-bottom: 4px; }
+
+.modal-card h2 {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--gold-light);
+    margin-bottom: 4px;
+}
+
+.modal-card .pick-label {
+    font-size: 11px;
+    color: rgba(232, 224, 208, 0.7);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+/* USER REGISTRATION FORM */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.form-grid .text-input { text-align: left; padding-left: 22px; }
+
+.error-msg {
+    color: var(--error);
+    font-size: 11px;
+    text-align: left;
+    padding-left: 22px;
+    letter-spacing: 0.05em;
+    margin-top: -6px;
+    min-height: 14px;
+}
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+    text-align: left;
+    font-size: 11px;
+    color: rgba(232, 224, 208, 0.75);
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+.consent input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--gold);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.consent label { cursor: pointer; }
+.consent a { color: var(--gold-light); text-decoration: underline; }
+
+/* CATEGORY GRID */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.category-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, rgba(212, 175, 106, 0.08), rgba(212, 175, 106, 0.02));
+    border: 1px solid rgba(212, 175, 106, 0.3);
+    border-radius: 18px;
+    color: #fff;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    width: 100%;
+}
+
+.category-btn:active { transform: scale(0.98); }
+
+.category-btn:hover {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(212, 175, 106, 0.18), rgba(212, 175, 106, 0.05));
+}
+
+.category-btn .icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold-dark));
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(212, 175, 106, 0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.category-btn .icon-wrap svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--ink);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.category-btn .text { flex: 1; }
+
+.category-btn .text .title {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.08em;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.category-btn .text .desc {
+    font-size: 11px;
+    color: rgba(232, 224, 208, 0.65);
+    letter-spacing: 0.05em;
+}
+
+.category-btn .arrow {
+    color: var(--gold);
+    font-size: 18px;
+    opacity: 0.7;
+}
+
+/* RESULT */
+.result-card .prize {
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.result-card .price {
+    font-weight: 800;
+    font-size: 32px;
+    background: linear-gradient(180deg, var(--gold-bright), var(--gold-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 22px;
+}
+
+.result-card .coupon {
+    background: rgba(212, 175, 106, 0.06);
+    border: 1px dashed var(--gold);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 18px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(232, 224, 208, 0.85);
+}
+
+.result-card .coupon .code {
+    font-family: 'Montserrat', monospace;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--gold-light);
+    letter-spacing: 0.2em;
+    margin-top: 4px;
+    display: block;
+}
+
+.result-actions { display: flex; gap: 10px; flex-direction: column; }
+
+/* ADMIN PANEL */
+.admin-trigger {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(212, 175, 106, 0.12);
+    border: 1px solid rgba(212, 175, 106, 0.3);
+    color: var(--gold);
+    font-size: 16px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    z-index: 50;
+    backdrop-filter: blur(8px);
+}
+
+.admin-trigger:active { transform: scale(0.92); }
+
+.admin-card {
+    max-width: 480px;
+    text-align: left;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.admin-card h2 { text-align: center; }
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.admin-stat {
+    background: rgba(212, 175, 106, 0.06);
+    border: 1px solid rgba(212, 175, 106, 0.2);
+    border-radius: 12px;
+    padding: 12px 8px;
+    text-align: center;
+}
+
+.admin-stat .num {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--gold-light);
+    line-height: 1;
+}
+
+.admin-stat .label {
+    font-size: 9px;
+    color: rgba(232, 224, 208, 0.6);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.admin-list {
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid rgba(212, 175, 106, 0.2);
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.admin-row {
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(212, 175, 106, 0.1);
+    font-size: 12px;
+}
+
+.admin-row:last-child { border-bottom: none; }
+
+.admin-row .name {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+}
+
+.admin-row .meta {
+    color: rgba(232, 224, 208, 0.6);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+}
+
+.admin-row .wins {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.admin-row .win-tag {
+    background: rgba(212, 175, 106, 0.1);
+    border: 1px solid rgba(212, 175, 106, 0.3);
+    color: var(--gold-light);
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 9px;
+    letter-spacing: 0.05em;
+}
+
+.admin-empty {
+    text-align: center;
+    padding: 32px 12px;
+    color: rgba(232, 224, 208, 0.5);
+    font-size: 12px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.admin-actions button {
+    flex: 1;
+    min-width: 120px;
+    font-size: 11px;
+    padding: 10px 14px;
+    letter-spacing: 0.15em;
+}
+
+@media (min-width: 540px) {
+    .app { padding: 36px 24px; }
+    .brand-name { font-size: 30px; }
+    .spin-win { font-size: 36px; }
+    .gorgeous { font-size: 28px; }
+    .wheel-stage { max-width: 400px; }
+}
+
+@media (max-height: 700px) {
+    .app { padding: 16px 18px 22px; }
+    .headline { margin-bottom: 12px; }
+    .wheel-stage { max-width: 290px; margin: 4px auto 16px; }
+    .brand { margin-bottom: 10px; }
+    .spin-win { font-size: 26px; }
+    .gorgeous { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== STEP 1: USER REGISTRATION ====== -->
+<div class="overlay show" id="registerOverlay">
+    <div class="modal-card">
+        <div class="crown">✨</div>
+        <h2>Welcome to Dreamgirl</h2>
+        <div class="pick-label">Tell us about yourself</div>
+
+        <div class="form-grid">
+            <input type="text" class="text-input" id="regName" placeholder="Your Full Name" autocomplete="name" maxlength="60">
+            <input type="tel" class="text-input" id="regPhone" placeholder="Phone Number (10 digits)" inputmode="numeric" autocomplete="tel" maxlength="15">
+            <input type="email" class="text-input" id="regEmail" placeholder="Email (optional)" autocomplete="email" maxlength="80">
+        </div>
+        <div class="error-msg" id="regError"></div>
+
+        <div class="consent">
+            <input type="checkbox" id="regConsent" checked>
+            <label for="regConsent">I agree to receive offers from Dreamgirl Family Salon via WhatsApp/SMS and consent to my data being collected for promotional purposes.</label>
+        </div>
+
+        <button class="btn-primary" onclick="submitRegistration()">CONTINUE</button>
+    </div>
+</div>
+
+<!-- ====== STEP 2: CATEGORY POPUP ====== -->
+<div class="overlay" id="categoryOverlay">
+    <div class="modal-card">
+        <div class="crown">🎁</div>
+        <h2 id="categoryGreeting">Hi there!</h2>
+        <div class="pick-label">Choose Your Category</div>
+
+        <div class="category-grid">
+            <button class="category-btn" onclick="selectCategory('hair')">
+                <span class="icon-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M12 3c-4 0-7 3-7 8v9h14v-9c0-5-3-8-7-8z"/><path d="M9 10c0-2 1-3 3-3s3 1 3 3"/><path d="M8 14c1 1 2 1 4 1s3 0 4-1"/></svg>
+                </span>
+                <span class="text">
+                    <div class="title">Hair</div>
+                    <div class="desc">Cuts, Spa, Smoothening & more</div>
+                </span>
+                <span class="arrow">›</span>
+            </button>
+
+            <button class="category-btn" onclick="selectCategory('face')">
+                <span class="icon-wrap">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="0.6" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="0.6" fill="currentColor" stroke="none"/><path d="M9 14c1 1.5 2 2 3 2s2-0.5 3-2"/></svg>
+                </span>
+                <span class="text">
+                    <div class="title">Face</div>
+                    <div class="desc">Facials, Cleanup, D-Tan & more</div>
+                </span>
+                <span class="arrow">›</span>
+            </button>
+
+            <button class="category-btn" onclick="selectCategory('product')">
+                <span class="icon-wrap">
+                    <svg viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg>
+                </span>
+                <span class="text">
+                    <div class="title">Product</div>
+                    <div class="desc">Salon retail & take-home kits</div>
+                </span>
+                <span class="arrow">›</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== STEP 3: MAIN WHEEL ====== -->
+<div class="app">
+
+    <div class="brand">
+        <div class="brand-name">DREAMGIRL</div>
+        <div class="brand-sub">FAMILY SALON</div>
+    </div>
+
+    <div class="headline">
+        <div class="spin-win">SPIN &amp; WIN</div>
+        <div class="gorgeous">Gorgeous Offers!</div>
+        <div class="user-strip">
+            <div class="user-pill"><span class="dot"></span><span id="userPillText">Welcome</span></div>
+            <div class="category-tag" onclick="changeCategory()">
+                <span id="categoryTagText">HAIR</span>
+                <span class="change-icon">CHANGE</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="wheel-stage">
+        <div class="pointer">
+            <svg width="36" height="46" viewBox="0 0 44 56">
+                <defs>
+                    <linearGradient id="ptrGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#f0d590"/>
+                        <stop offset="50%" stop-color="#c8a05a"/>
+                        <stop offset="100%" stop-color="#8a6730"/>
+                    </linearGradient>
+                </defs>
+                <path d="M22 56 L4 8 Q22 0 40 8 Z" fill="url(#ptrGrad)" stroke="#6b4f2a" stroke-width="1"/>
+            </svg>
+        </div>
+
+        <div class="wheel" id="wheel">
+            <svg viewBox="-260 -260 520 520">
+                <defs>
+                    <radialGradient id="goldSlice" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#f0d590"/>
+                        <stop offset="100%" stop-color="#b08642"/>
+                    </radialGradient>
+                    <radialGradient id="darkSlice" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#1a1308"/>
+                        <stop offset="100%" stop-color="#080502"/>
+                    </radialGradient>
+                    <radialGradient id="rimGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="92%" stop-color="#0a0805"/>
+                        <stop offset="100%" stop-color="#14100a"/>
+                    </radialGradient>
+                    <linearGradient id="centerGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#1a1308"/>
+                        <stop offset="100%" stop-color="#0a0805"/>
+                    </linearGradient>
+                    <linearGradient id="rimRing" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#e8c885"/>
+                        <stop offset="50%" stop-color="#9c7a3f"/>
+                        <stop offset="100%" stop-color="#5a4220"/>
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                </defs>
+
+                <circle cx="0" cy="0" r="255" fill="url(#rimGrad)" stroke="url(#rimRing)" stroke-width="3"/>
+                <circle cx="0" cy="0" r="248" fill="none" stroke="#3a2a14" stroke-width="1"/>
+
+                <g id="bulbs"></g>
+
+                <circle cx="0" cy="0" r="225" fill="none" stroke="url(#rimRing)" stroke-width="2"/>
+
+                <g id="slices"></g>
+
+                <circle cx="0" cy="0" r="64" fill="url(#centerGrad)" stroke="url(#rimRing)" stroke-width="3"/>
+                <circle cx="0" cy="0" r="58" fill="none" stroke="#3a2a14" stroke-width="1"/>
+
+                <text x="0" y="-4" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="800" font-size="13" fill="#d4af6a" letter-spacing="2">DREAMGIRL</text>
+                <text x="0" y="11" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="400" font-size="6" fill="#9c7a3f" letter-spacing="3">FAMILY SALON</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn-primary" id="spinBtn">SPIN THE WHEEL</button>
+    </div>
+
+    <div class="note">Limited time · One spin per category</div>
+
+</div>
+
+<!-- ====== STEP 4: RESULT POPUP ====== -->
+<div class="overlay" id="resultOverlay">
+    <div class="modal-card result-card">
+        <div class="crown">👑</div>
+        <h2>Congratulations!</h2>
+        <div class="prize" id="prizeName"></div>
+        <div class="price" id="prizePrice"></div>
+        <div class="coupon">
+            YOUR COUPON CODE
+            <span class="code" id="couponCode">DG-XXXX</span>
+        </div>
+        <div class="result-actions">
+            <button class="btn-primary" onclick="closeResult()">CLAIM AT SALON</button>
+            <button class="btn-secondary" onclick="resetAndChooseAgain()">TRY ANOTHER CATEGORY</button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== ADMIN PANEL ====== -->
+<button class="admin-trigger" onclick="openAdmin()" title="Admin">⚙</button>
+
+<div class="overlay" id="adminOverlay">
+    <div class="modal-card admin-card">
+        <h2>Collected Data</h2>
+        <div class="pick-label" style="margin-bottom: 12px;">Customer Registrations & Wins</div>
+
+        <div class="admin-stats">
+            <div class="admin-stat"><div class="num" id="statUsers">0</div><div class="label">Users</div></div>
+            <div class="admin-stat"><div class="num" id="statSpins">0</div><div class="label">Spins</div></div>
+            <div class="admin-stat"><div class="num" id="statEmails">0</div><div class="label">Emails</div></div>
+        </div>
+
+        <div class="admin-list" id="adminList"></div>
+
+        <div class="admin-actions">
+            <button class="btn-secondary" onclick="exportCSV()">EXPORT CSV</button>
+            <button class="btn-secondary" onclick="closeAdmin()">CLOSE</button>
+            <button class="btn-secondary" onclick="clearData()" style="border-color: var(--error); color: var(--error);">CLEAR ALL</button>
+        </div>
+    </div>
+</div>
+
+<script>
+/* =================== OPTIONAL WEBHOOK ===================
+   To collect data on a server / Google Sheet / Zapier:
+   1. Create a Google Apps Script web app or Zapier webhook
+   2. Replace the empty string below with your endpoint URL
+   3. Data will POST automatically on each registration & spin
+*/
+const WEBHOOK_URL = ''; // e.g. 'https://script.google.com/macros/s/XXXX/exec'
+
+/* =================== OFFER DATA =================== */
+const catalog = {
+    hair: [
+        { name: 'HAIR CUT',          sub: '',              price: '₹199',  time: '40 min', type: 'gold' },
+        { name: 'HAIR SPA LOREAL',   sub: 'ANY LENGTH',    price: '₹899',  time: '60 min', type: 'dark' },
+        { name: 'HEAD MASSAGE',      sub: '',              price: '₹11',   time: '30 min', type: 'gold' },
+        { name: 'HAIR WASH',         sub: 'SULPHATE FREE', price: '₹21',   time: '20 min', type: 'dark' },
+        { name: 'STRAIGHTENING',     sub: '',              price: '₹1959', time: '90 min', type: 'gold' },
+        { name: 'KERATIN',           sub: 'ANY LENGTH',    price: '₹1959', time: '90 min', type: 'dark' },
+        { name: 'MINI HAIR SPA',     sub: '',              price: '₹299',  time: '30 min', type: 'gold' },
+        { name: 'HAIR SPA NORMAL',   sub: 'ANY LENGTH',    price: '₹399',  time: '60 min', type: 'dark' }
+    ],
+    face: [
+        { name: '4 STEP FACIAL',          sub: 'NORMAL',  price: '₹299',  time: '60 min',  type: 'gold' },
+        { name: 'D-TAN',                  sub: 'NORMAL',  price: '₹99',   time: '25 min',  type: 'dark' },
+        { name: '5 STEP FACIAL KIT',      sub: '',        price: '₹399',  time: '90 min',  type: 'gold' },
+        { name: 'O³ FACIAL 10 STEP KIT',  sub: '',        price: '₹2199', time: '180 min', type: 'dark' },
+        { name: 'O³ HYDRA FACIAL',        sub: '10 STEP', price: '₹2499', time: '180 min', type: 'gold' },
+        { name: 'HEAD MASSAGE',           sub: '',        price: '₹11',   time: '30 min',  type: 'dark' },
+        { name: 'HYDRA FACIAL KIT',       sub: '6 STEP',  price: '₹1199', time: '120 min', type: 'gold' },
+        { name: 'FACIAL WITH KIT',        sub: '6 STEP',  price: '₹999',  time: '120 min', type: 'dark' }
+    ],
+    product: [
+        { name: 'HAIR SERUM',     sub: 'ARGAN OIL',     price: '₹299',  time: 'RETAIL', type: 'gold' },
+        { name: 'FACE WASH',      sub: 'BRIGHTENING',   price: '₹199',  time: 'RETAIL', type: 'dark' },
+        { name: 'SHAMPOO',        sub: 'SULPHATE FREE', price: '₹399',  time: 'RETAIL', type: 'gold' },
+        { name: 'HAIR MASK',      sub: 'KERATIN',       price: '₹499',  time: 'RETAIL', type: 'dark' },
+        { name: 'SUNSCREEN',      sub: 'SPF 50',        price: '₹349',  time: 'RETAIL', type: 'gold' },
+        { name: 'BODY LOTION',    sub: 'GLOW',          price: '₹249',  time: 'RETAIL', type: 'dark' },
+        { name: 'CONDITIONER',    sub: 'SMOOTHING',     price: '₹349',  time: 'RETAIL', type: 'gold' },
+        { name: 'COMBO KIT',      sub: 'HAIR + FACE',   price: '₹999',  time: 'RETAIL', type: 'dark' }
+    ]
+};
+
+const categoryLabels = { hair: 'HAIR', face: 'FACE', product: 'PRODUCT' };
+
+/* =================== STORAGE =================== */
+const DB_KEY = 'dreamgirl_db_v1';
+
+function loadDB() {
+    try {
+        const raw = sessionStorage.getItem(DB_KEY);
+        return raw ? JSON.parse(raw) : { users: {}, registeredAt: {} };
+    } catch (e) {
+        return { users: {}, registeredAt: {} };
+    }
+}
+
+function saveDB(db) {
+    try { sessionStorage.setItem(DB_KEY, JSON.stringify(db)); } catch (e) {}
+}
+
+let db = loadDB();
+let currentUser = null; // { name, phone, email }
+
+/* =================== STATE =================== */
+let currentCategory = 'hair';
+let offers = catalog[currentCategory];
+let N = offers.length;
+let SLICE_DEG = 360 / N;
+
+const slicesGroup = document.getElementById('slices');
+const bulbsGroup = document.getElementById('bulbs');
+const wheelEl = document.getElementById('wheel');
+const spinBtn = document.getElementById('spinBtn');
+
+let spinning = false;
+let currentRotation = 0;
+
+/* =================== HELPERS =================== */
+function wrapName(name) {
+    if (name.length <= 12) return [name];
+    const parts = name.split(' ');
+    if (parts.length === 1) return [name];
+    const mid = Math.ceil(parts.length / 2);
+    return [parts.slice(0, mid).join(' '), parts.slice(mid).join(' ')];
+}
+
+function createSvgText(content, x, y, fill, size, weight) {
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', x);
+    t.setAttribute('y', y);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-family', 'Montserrat, sans-serif');
+    t.setAttribute('font-weight', weight);
+    t.setAttribute('font-size', size);
+    t.setAttribute('fill', fill);
+    t.setAttribute('letter-spacing', '0.5');
+    t.textContent = content;
+    return t;
+}
+
+function genCoupon() {
+    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    let s = 'DG-';
+    for (let i = 0; i < 4; i++) s += chars[Math.floor(Math.random() * chars.length)];
+    return s;
+}
+
+function fireWebhook(payload) {
+    if (!WEBHOOK_URL) return;
+    fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }).catch(() => {});
+}
+
+/* =================== WHEEL =================== */
+function buildSlices() {
+    slicesGroup.innerHTML = '';
+
+    for (let i = 0; i < N; i++) {
+        const startAngle = i * SLICE_DEG - SLICE_DEG / 2 - 90;
+        const endAngle = startAngle + SLICE_DEG;
+        const r = 225;
+        const startRad = (startAngle * Math.PI) / 180;
+        const endRad = (endAngle * Math.PI) / 180;
+        const x1 = Math.cos(startRad) * r, y1 = Math.sin(startRad) * r;
+        const x2 = Math.cos(endRad) * r,   y2 = Math.sin(endRad) * r;
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', `M 0 0 L ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2} Z`);
+        path.setAttribute('fill', offers[i].type === 'gold' ? 'url(#goldSlice)' : 'url(#darkSlice)');
+        path.setAttribute('stroke', '#6b4f2a');
+        path.setAttribute('stroke-width', '1');
+        slicesGroup.appendChild(path);
+
+        const labelRotation = i * SLICE_DEG;
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('transform', `rotate(${labelRotation})`);
+
+        const isGold = offers[i].type === 'gold';
+        const textColor = isGold ? '#1a1308' : '#e8c885';
+        const subColor = isGold ? '#3a2a14' : '#9c7a3f';
+        const pillFill = isGold ? '#0a0805' : 'transparent';
+        const pillStroke = isGold ? '#0a0805' : '#d4af6a';
+
+        const nameLines = wrapName(offers[i].name);
+        nameLines.forEach((line, li) => {
+            g.appendChild(createSvgText(line, 0, -178 + li * 16, textColor, 13, 700));
+        });
+
+        if (offers[i].sub) {
+            g.appendChild(createSvgText(offers[i].sub, 0, -178 + nameLines.length * 16, textColor, 10, 600));
+        }
+
+        const pillY = -178 + nameLines.length * 16 + (offers[i].sub ? 16 : 4);
+        const pill = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        pill.setAttribute('x', -30);
+        pill.setAttribute('y', pillY);
+        pill.setAttribute('width', 60);
+        pill.setAttribute('height', 22);
+        pill.setAttribute('rx', 11);
+        pill.setAttribute('fill', pillFill);
+        pill.setAttribute('stroke', pillStroke);
+        pill.setAttribute('stroke-width', 1.2);
+        g.appendChild(pill);
+
+        g.appendChild(createSvgText(offers[i].price, 0, pillY + 15, '#e8c885', 12, 800));
+        g.appendChild(createSvgText(offers[i].time, 0, pillY + 38, subColor, 10, 500));
+
+        slicesGroup.appendChild(g);
+    }
+}
+
+function buildBulbs() {
+    bulbsGroup.innerHTML = '';
+    const COUNT = 24;
+    const radius = 240;
+    for (let i = 0; i < COUNT; i++) {
+        const a = (i / COUNT) * Math.PI * 2 - Math.PI / 2;
+        const cx = Math.cos(a) * radius;
+        const cy = Math.sin(a) * radius;
+        const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', cx);
+        c.setAttribute('cy', cy);
+        c.setAttribute('r', 3.5);
+        c.setAttribute('fill', '#f0d590');
+        c.setAttribute('class', 'bulb');
+        c.setAttribute('filter', 'url(#glow)');
+        c.style.animationDelay = `${(i % 4) * 0.35}s`;
+        bulbsGroup.appendChild(c);
+    }
+}
+
+/* =================== STEP 1: REGISTER =================== */
+function submitRegistration() {
+    const name = document.getElementById('regName').value.trim();
+    const phone = document.getElementById('regPhone').value.trim().replace(/\s+/g, '');
+    const email = document.getElementById('regEmail').value.trim();
+    const consent = document.getElementById('regConsent').checked;
+    const errEl = document.getElementById('regError');
+
+    document.getElementById('regName').classList.remove('error');
+    document.getElementById('regPhone').classList.remove('error');
+    document.getElementById('regEmail').classList.remove('error');
+    errEl.textContent = '';
+
+    if (!name || name.length < 2) {
+        errEl.textContent = 'Please enter your full name.';
+        document.getElementById('regName').classList.add('error');
+        document.getElementById('regName').focus();
+        return;
+    }
+    if (!/^\+?[0-9]{10,15}$/.test(phone)) {
+        errEl.textContent = 'Please enter a valid phone number (10–15 digits).';
+        document.getElementById('regPhone').classList.add('error');
+        document.getElementById('regPhone').focus();
+        return;
+    }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errEl.textContent = 'Please enter a valid email address.';
+        document.getElementById('regEmail').classList.add('error');
+        document.getElementById('regEmail').focus();
+        return;
+    }
+    if (!consent) {
+        errEl.textContent = 'Please agree to the terms to continue.';
+        return;
+    }
+
+    // Save user
+    if (!db.users[phone]) {
+        db.users[phone] = { name, phone, email, wins: {}, createdAt: new Date().toISOString() };
+    } else {
+        db.users[phone].name = name;
+        if (email) db.users[phone].email = email;
+    }
+    saveDB(db);
+
+    currentUser = db.users[phone];
+
+    fireWebhook({
+        event: 'register',
+        name, phone, email,
+        consent,
+        timestamp: new Date().toISOString()
+    });
+
+    // Update UI
+    const firstName = name.split(' ')[0];
+    document.getElementById('userPillText').textContent = firstName;
+    document.getElementById('categoryGreeting').textContent = `Hi ${firstName}!`;
+
+    document.getElementById('registerOverlay').classList.remove('show');
+    document.getElementById('categoryOverlay').classList.add('show');
+}
+
+/* =================== STEP 2: CATEGORY =================== */
+function selectCategory(cat) {
+    currentCategory = cat;
+    offers = catalog[cat];
+    N = offers.length;
+    SLICE_DEG = 360 / N;
+
+    document.getElementById('categoryTagText').textContent = categoryLabels[cat];
+
+    wheelEl.style.transition = 'none';
+    currentRotation = 0;
+    wheelEl.style.transform = 'rotate(0deg)';
+    void wheelEl.offsetWidth;
+    wheelEl.style.transition = 'transform 5s cubic-bezier(0.17, 0.67, 0.17, 1)';
+
+    buildSlices();
+    document.getElementById('categoryOverlay').classList.remove('show');
+}
+
+function changeCategory() {
+    if (!currentUser) return;
+    document.getElementById('categoryOverlay').classList.add('show');
+}
+
+function resetAndChooseAgain() {
+    document.getElementById('resultOverlay').classList.remove('show');
+    document.getElementById('categoryOverlay').classList.add('show');
+}
+
+/* =================== STEP 3: SPIN =================== */
+spinBtn.addEventListener('click', () => {
+    if (!currentUser) {
+        document.getElementById('registerOverlay').classList.add('show');
+        return;
+    }
+
+    const userRecord = db.users[currentUser.phone];
+    if (userRecord.wins && userRecord.wins[currentCategory]) {
+        showResult(userRecord.wins[currentCategory], true);
+        return;
+    }
+
+    if (spinning) return;
+    spinning = true;
+    spinBtn.disabled = true;
+
+    const winIndex = Math.floor(Math.random() * N);
+    const baseTurns = 5 * 360;
+    const targetAngle = -winIndex * SLICE_DEG;
+    const jitter = (Math.random() - 0.5) * (SLICE_DEG * 0.6);
+    let finalRotation = currentRotation + baseTurns + targetAngle + jitter;
+    if (finalRotation < currentRotation + 360 * 4) finalRotation += 360;
+
+    currentRotation = finalRotation;
+    wheelEl.style.transform = `rotate(${finalRotation}deg)`;
+
+    setTimeout(() => {
+        const winner = { ...offers[winIndex], coupon: genCoupon(), wonAt: new Date().toISOString(), category: currentCategory };
+        if (!userRecord.wins) userRecord.wins = {};
+        userRecord.wins[currentCategory] = winner;
+        saveDB(db);
+
+        fireWebhook({
+            event: 'spin',
+            name: currentUser.name,
+            phone: currentUser.phone,
+            email: currentUser.email,
+            category: currentCategory,
+            prize: winner.name + (winner.sub ? ' — ' + winner.sub : ''),
+            price: winner.price,
+            coupon: winner.coupon,
+            timestamp: winner.wonAt
+        });
+
+        showResult(winner, false);
+        spinning = false;
+        spinBtn.disabled = false;
+    }, 5100);
+});
+
+function showResult(winner, alreadyPlayed) {
+    document.getElementById('prizeName').textContent =
+        (alreadyPlayed ? 'You already won: ' : '') + winner.name + (winner.sub ? ' — ' + winner.sub : '');
+    document.getElementById('prizePrice').textContent = winner.price;
+    document.getElementById('couponCode').textContent = winner.coupon || 'DG-XXXX';
+    document.getElementById('resultOverlay').classList.add('show');
+}
+
+function closeResult() {
+    document.getElementById('resultOverlay').classList.remove('show');
+}
+
+document.getElementById('resultOverlay').addEventListener('click', (e) => {
+    if (e.target.id === 'resultOverlay') closeResult();
+});
+
+/* =================== ADMIN PANEL =================== */
+function openAdmin() {
+    db = loadDB();
+    const users = Object.values(db.users);
+    document.getElementById('statUsers').textContent = users.length;
+    document.getElementById('statSpins').textContent = users.reduce((s, u) => s + Object.keys(u.wins || {}).length, 0);
+    document.getElementById('statEmails').textContent = users.filter(u => u.email).length;
+
+    const list = document.getElementById('adminList');
+    if (users.length === 0) {
+        list.innerHTML = '<div class="admin-empty">No registrations yet.</div>';
+    } else {
+        list.innerHTML = users.map(u => {
+            const wins = Object.entries(u.wins || {}).map(([cat, w]) =>
+                `<span class="win-tag">${cat.toUpperCase()} · ${w.name} · ${w.price}</span>`
+            ).join('');
+            return `
+                <div class="admin-row">
+                    <div class="name">${escapeHtml(u.name)}</div>
+                    <div class="meta">📱 ${escapeHtml(u.phone)}${u.email ? ' · ✉ ' + escapeHtml(u.email) : ''}</div>
+                    <div class="wins">${wins || '<span class="meta">No spins yet</span>'}</div>
+                </div>
+            `;
+        }).join('');
+    }
+    document.getElementById('adminOverlay').classList.add('show');
+}
+
+function closeAdmin() { document.getElementById('adminOverlay').classList.remove('show'); }
+
+function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function exportCSV() {
+    const users = Object.values(db.users);
+    if (users.length === 0) { alert('No data to export.'); return; }
+
+    const rows = [['Name', 'Phone', 'Email', 'Registered At', 'Category', 'Prize', 'Price', 'Coupon', 'Won At']];
+    users.forEach(u => {
+        const wins = Object.entries(u.wins || {});
+        if (wins.length === 0) {
+            rows.push([u.name, u.phone, u.email || '', u.createdAt || '', '', '', '', '', '']);
+        } else {
+            wins.forEach(([cat, w]) => {
+                rows.push([u.name, u.phone, u.email || '', u.createdAt || '', cat, w.name + (w.sub ? ' — ' + w.sub : ''), w.price, w.coupon || '', w.wonAt || '']);
+            });
+        }
+    });
+
+    const csv = rows.map(r => r.map(cell => {
+        const s = String(cell == null ? '' : cell);
+        return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    }).join(',')).join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `dreamgirl-data-${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
+
+function clearData() {
+    if (!confirm('Delete ALL collected data? This cannot be undone.')) return;
+    sessionStorage.removeItem(DB_KEY);
+    db = loadDB();
+    openAdmin();
+}
+
+document.getElementById('adminOverlay').addEventListener('click', (e) => {
+    if (e.target.id === 'adminOverlay') closeAdmin();
+});
+
+/* =================== INIT =================== */
+buildBulbs();
+buildSlices();
+
+// Phone input — digits only (allow leading +)
+document.getElementById('regPhone').addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/[^0-9+]/g, '').replace(/(?!^)\+/g, '');
+});
+</script>
+
+</body>
+</html>
 }
 
 .headline { text-align: center; margin-bottom: 12px; }
